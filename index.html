@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-blue-900 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Main Weather App Container -->
+    <div class="w-full max-w-md mx-auto">
+        <div class="weather-card rounded-3xl p-6 md:p-8 text-white shadow-2xl">
+            <!-- Search Bar -->
+            <div class="flex items-center gap-3">
+                <input type="text" id="cityInput" placeholder="Enter a city name" class="w-full bg-white/10 placeholder-white/60 text-white rounded-full px-5 py-3 focus:outline-none focus:ring-2 focus:ring-white/50 transition duration-300">
+                <button id="searchBtn" class="bg-white/20 hover:bg-white/30 text-white rounded-full p-3 focus:outline-none focus:ring-2 focus:ring-white/50 transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Content Area: Will display loader, error, or weather info -->
+            <div id="weatherContent" class="mt-6 text-center">
+                
+                <!-- Loader (initially hidden) - No longer used but kept for structure -->
+                <div id="loader" class="hidden mx-auto">
+                    <div class="loader"></div>
+                    <p class="mt-2 text-white/70">Fetching weather...</p>
+                </div>
+
+                <!-- Error Message (initially hidden) - No longer used -->
+                <div id="errorMessage" class="hidden bg-red-500/30 p-4 rounded-xl">
+                    <p id="errorText"></p>
+                </div>
+                
+                <!-- Weather Information (now visible by default) -->
+                <div id="weatherInfo">
+                    <h2 id="cityName" class="text-3xl font-bold tracking-wide"></h2>
+                    <p id="country" class="text-white/60 text-sm"></p>
+                    
+                    <div class="flex flex-col items-center my-6">
+                       <div id="weatherIcon" class="w-32 h-32">
+                           <!-- SVG Icon will be injected here -->
+                       </div>
+                       <p id="temperature" class="text-7xl font-bold"></p>
+                       <p id="weatherDescription" class="text-xl capitalize text-white/80 -mt-2"></p>
+                    </div>
+
+                    <!-- Additional Details -->
+                    <div class="grid grid-cols-3 gap-4 bg-white/10 rounded-2xl p-4">
+                        <div class="text-center">
+                            <p class="text-sm text-white/60">Feels Like</p>
+                            <p id="feelsLike" class="font-semibold text-lg"></p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-sm text-white/60">Humidity</p>
+                            <p id="humidity" class="font-semibold text-lg"></p>
+                        </div>
+                        <div class="text-center">
+                             <p class="text-sm text-white/60">Wind</p>
+                            <p id="windSpeed" class="font-semibold text-lg"></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
